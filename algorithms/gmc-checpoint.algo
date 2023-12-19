@@ -1,0 +1,44 @@
+ALGORITHM CheckpointAlgorithm
+// we start by calling our variables the first row value will be integer, the SENTENCE variable is a string.
+VAR
+    sentenceLength, numberWords, numberVowels, i, j, k : INTEGER;
+    Sentence : STRING;
+BEGIN
+// we then instruct the browser to read the input from the user
+    Read(Sentence);
+
+    sentenceLength := 0;  // Initialize sentence length
+    i := 1;               // Initialize loop counter (this helps us keep track of the differnt iterations in this code)
+
+    WHILE (Sentence[i] <> ".") DO  // the loop asked us to cycle through each character in the given
+                                   //sentence until we see a fullstop.
+        sentenceLength := sentenceLength + 1;//we then increase sentence.lenght by 1
+        i := i + 1;
+    END_WHILE
+
+    numberWords := 1;  // Initialize word count
+    j := 1;            // Initialize loop counter j
+
+    WHILE (j <= sentenceLength) DO  // this loop counter "j" cycles through each character and counts the individual letters by counting the space between the letters.
+        IF (Sentence[j] = " ") THEN
+            numberWords := numberWords + 1;
+        END_IF
+        j := j + 1;
+    END_WHILE
+    
+    numberVowels := 0;  // Initialize vowel count
+    k := 1;             // Initialize loop counter k
+
+    WHILE (k <= sentenceLength) DO// this loop counter helps us count the vowels in capital and small letters.
+        IF (Sentence[k] = "a" OR Sentence[k] = "e" OR Sentence[k] = "i" OR Sentence[k] = "o" OR Sentence[k] = "u" OR
+            Sentence[k] = "A" OR Sentence[k] = "E" OR Sentence[k] = "I" OR Sentence[k] = "O" OR Sentence[k] = "U") THEN
+            numberVowels := numberVowels + 1;
+        END_IF
+        k := k + 1;
+    END_WHILE
+
+    Write("Sentence Length:", sentenceLength);
+    Write("Number of Words:", numberWords);
+    Write("Number of Vowels:", numberVowels);
+
+END
