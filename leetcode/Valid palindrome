@@ -1,1 +1,18 @@
 
+function isAlphanumeric(char) {
+    // Check if a character is a letter or a digit
+    return (char >= 'a' && char <= 'z') || (char >= '0' && char <= '9');
+}
+
+function isPalindrome(s) {
+    // Convert to lowercase and remove non-alphanumeric characters
+    const cleanString = Array.from(s.toLowerCase()).filter(isAlphanumeric).join('');
+
+    // Check if the cleaned string is a palindrome
+    const reversedString = cleanString.split('').reverse().join('');
+    return cleanString === reversedString;
+}
+
+// Example usage:
+const inputString = "A man, a plan, a canal, Panama!";
+console.log(isPalindrome(inputString)); // Output: true
